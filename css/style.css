@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 
 html, body {
     margin: 0;
@@ -6,7 +6,7 @@ html, body {
 
 * {
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 
@@ -47,21 +47,21 @@ footer {
 
 
 
-#liste-oeuvres {
+#artwork-list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.oeuvre {
+.artwork {
     width: 33.33%;
     padding: 15px;
 }
 
-.oeuvre img {
+.artwork img {
     width: 100%;
 }
 
-.oeuvre h2, #detail-oeuvre h1 {
+.artwork h2, #artwork-details h1 {
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
@@ -69,14 +69,14 @@ footer {
     font-size: 30px;
 }
 
-.oeuvre .description, #detail-oeuvre .description {
+.artwork .description, #artwork-details .description {
     font-style: italic;
     margin-top: 0;
     font-size: 12px;
     margin-bottom: 20px;
 }
 
-#detail-oeuvre {
+#artwork-details {
     display: flex;
     flex-wrap: wrap;
     align-items: end;
@@ -86,17 +86,17 @@ footer {
     padding: 0 15px;
 }
 
-#img-oeuvre {
+#artwork-img {
     margin-right: 25px;
 }
 
-#img-oeuvre img {
+#artwork-img img {
     max-width: 470px;
     margin: auto;
     display: block;
 }
 
-#contenu-oeuvre {
+#artwork-content {
     max-width: 470px;
 }
 
@@ -108,7 +108,7 @@ form {
     padding: 50px 10px;
 }
 
-.champ-formulaire {
+.form-field {
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
@@ -128,34 +128,34 @@ input[type="submit"] {
     background: black;
     border: none;
     width: 120px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 15px;
     padding: 7px;
 }
 
 
 @media (max-width: 850px) {
-    .oeuvre {
+    .artwork {
         width: 50%;
     }
 
-    #img-oeuvre {
+    #artwork-img {
         margin-right: 0;
         width: 100%;
     }
 
-    #img-oeuvre img {
+    #artwork-img img {
         width: 100%;
     }
 
-    #contenu-oeuvre {
+    #artwork-content {
         width: 100%;
         margin: auto;
     }
 }
 
 @media (max-width: 600px) {
-    .oeuvre {
+    .artwork {
         width: 100%;
     }
 
