@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/utils.php");                   // PHP utility functions.
 require_once(__DIR__ . "/database.php");                // SQL database handles.
 require_once(__DIR__ . "/begin.php");                   // Begin HTML boilerplate.
 require_once(__DIR__ . "/header.php");                  // Redundant HTML header.
@@ -7,10 +8,10 @@ require_once(__DIR__ . "/header.php");                  // Redundant HTML header
 <main>
     <?php // Display artworks to the user. ?>
     <div id="artwork-list">
-        <?php $artworks_db = new ArtworkDB; ?>
-        <?php foreach ($artworks_db->getArtworks() as $id => $artwork) : ?>
+        <?php $artwork_db = new ArtworkDB; ?>
+        <?php foreach ($artwork_db->getArtworks() as $artwork) : ?>
             <article class="artwork">
-                <a href="artwork.php?id=<?= $id ?>">
+                <a href="artwork.php?id=<?= $artwork["id"] ?>">
                     <img
                     src="<?= htmlspecialchars($artwork["image"]); ?>"
                     alt="<?= htmlspecialchars($artwork["title"]); ?>"

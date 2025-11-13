@@ -14,29 +14,42 @@ class ArtworkDB {
         } catch (Exception $e) {
 
             // Display error on the page.
-            die("Failed to access SQL database, error : {$e->getMessage()}");
+            exit("Failed to access SQL database, error : {$e->getMessage()}");
         }
         
     }
 
     // Fetch artwork array from SQL database.
-    public function getArtworks() {
+    public function getArtworks() : array {
         try {
 
             // Read artworks from database.
             $dbArtworks = $this->dbHandle->prepare("SELECT * FROM artworks");
             $dbArtworks->execute();
             $artworks = $dbArtworks->fetchAll(PDO::FETCH_ASSOC);
-
-            // Return artwork associative array by IDs.
-            $artworks = array_column($artworks, null, "id");
-            $artworks = array_map(fn($item) => array_diff_key($item, ["id" => ""]), $artworks);
             return $artworks;
 
         } catch (Exception $e) {
 
             // Display error on the page.
-            die("Failed to read from SQL database, error : {$e->getMessage()}");
+            exit("Failed to read from SQL database, error : {$e->getMessage()}");
+        }
+    }
+
+    // Fetch artwork from SQL database by ID.
+    public function getArtworkByID(int|string $id) : ?array {
+        try {
+
+            // Read artworks from database.
+            $dbArtworks = $this->dbHandle->prepare("SELECT * FROM artworks WHERE id = :id LIMIT 1");
+            $dbArtworks->execute([ "id" => $id ]);
+            $artworks = $dbArtworks->fetchAll(PDO::FETCH_ASSOC);
+            return $artworks[0] ?? NULL;
+
+        } catch (Exception $e) {
+
+            // Display error on the page.
+            exit("Failed to read from SQL database, error : {$e->getMessage()}");
         }
     }
 }

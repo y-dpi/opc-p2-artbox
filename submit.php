@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/utils.php");                   // PHP utility functions.
 require_once(__DIR__ . "/database.php");                // SQL database handles.
 require_once(__DIR__ . "/begin.php");                   // Begin HTML boilerplate.
 require_once(__DIR__ . "/header.php");                  // Redundant HTML header.
