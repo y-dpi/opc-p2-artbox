@@ -57,13 +57,10 @@ class ArtworkDB {
     public function addArtwork(array $artwork) : int {
         try {
 
-            // TODO: Write artwork to database.
-            echo "<pre>";
-            print_r($artwork);
-            echo "</pre>";
-
-            // Return 0 on success.
-            return 0;
+            // Write artwork to database.
+            $dbArtworks = $this->dbHandle->prepare("INSERT INTO artworks (title, artist, description, image) VALUES (:title, :artist, :description, :image)");
+            $dbArtworks->execute($artwork);
+            return 0; // Success.
 
         } catch (Exception $e) {
 

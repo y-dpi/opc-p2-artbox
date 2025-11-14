@@ -14,10 +14,10 @@ if (!isset($_POST["description"])) redirect($redirection_target);
 
 // Read data from user form safely.
 $artwork = [
-    "title" => trim(htmlspecialchars($_POST["title"])),
-    "artist" => trim(htmlspecialchars($_POST["artist"])),
-    "image" => trim(htmlspecialchars($_POST["image"])),
-    "description" => trim(htmlspecialchars($_POST["description"]))
+    "title" => trim(strip_tags($_POST["title"])),
+    "artist" => trim(strip_tags($_POST["artist"])),
+    "image" => trim(strip_tags($_POST["image"])),
+    "description" => trim(strip_tags($_POST["description"]))
 ];
 
 // Validate form data.
@@ -30,5 +30,6 @@ if (!filter_var($artwork["image"], FILTER_VALIDATE_URL)) redirect($redirection_t
 // Add artwork to artwork database.
 $artwork_db = new ArtworkDB();
 $artwork_db->addArtwork($artwork);
+redirect("/index.php");
 
 ?>
