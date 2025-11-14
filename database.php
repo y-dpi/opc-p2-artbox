@@ -40,7 +40,7 @@ class ArtworkDB {
     public function getArtworkByID(int|string $id) : ?array {
         try {
 
-            // Read artworks from database.
+            // Read artwork from database.
             $dbArtworks = $this->dbHandle->prepare("SELECT * FROM artworks WHERE id = :id LIMIT 1");
             $dbArtworks->execute([ "id" => $id ]);
             $artworks = $dbArtworks->fetchAll(PDO::FETCH_ASSOC);
@@ -50,6 +50,25 @@ class ArtworkDB {
 
             // Display error on the page.
             exit("Failed to read from SQL database, error : {$e->getMessage()}");
+        }
+    }
+
+    // Add artwork to SQL database.
+    public function addArtwork(array $artwork) : int {
+        try {
+
+            // TODO: Write artwork to database.
+            echo "<pre>";
+            print_r($artwork);
+            echo "</pre>";
+
+            // Return 0 on success.
+            return 0;
+
+        } catch (Exception $e) {
+
+            // Display error on the page.
+            exit("Failed to write to SQL database, error : {$e->getMessage()}");
         }
     }
 }
